@@ -1,5 +1,6 @@
 <?php
-class Crud {
+class Crud
+{
     // private database object
     private $db;
 
@@ -9,10 +10,10 @@ class Crud {
         $this->db = $conn;
     }
 
-    public function insertAttendee($fname, $lname, $dob, $email, $contact, $speciality)
+    public function insertAttendee($fname, $lname, $dob, $email, $contact, $speciality, $avatar_path)
     {
         try {
-            $sql = "INSERT INTO attendee (firstName, lastName, dateOfBirth, email, contactNum, speciality_id) VALUES (:fname, :lname, :dob, :email, :contact, :speciality)";
+            $sql = "INSERT INTO attendee (firstName, lastName, dateOfBirth, email, contactNum, speciality_id, avatar_path) VALUES (:fname, :lname, :dob, :email, :contact, :speciality, :avatar_path)";
             $stmt = $this->db->prepare($sql);
 
             $stmt->bindparam(':fname', $fname);
@@ -21,6 +22,7 @@ class Crud {
             $stmt->bindparam(':email', $email);
             $stmt->bindparam(':contact', $contact);
             $stmt->bindparam(':speciality', $speciality);
+            $stmt->bindparam(':avatar_path', $avatar_path);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -96,6 +98,21 @@ class Crud {
         try {
             $sql = "SELECT * FROM `specialities`;";
             $result = $this->db->query($sql);
+            return $result;
+        } catch(PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    public function getSpecialtyById($id)
+    {
+        try {
+            $sql = "SELECT * FROM `specialities` where speciality_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindparam(':id', $id);
+            $stmt->execute();
+            $result = $stmt->fetch();
             return $result;
         } catch(PDOException $e) {
             echo $e->getMessage();

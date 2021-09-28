@@ -1,3 +1,7 @@
+<?php
+  require_once 'includes/session.php';
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,27 +17,38 @@
 
     
     <!-- my CSS -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 
     <title>Attendance - <?php echo $title; ?></title>
   </head>
   <body>
-    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-primary bg-dark">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-primary bg-dark p-3 mb-2">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.php">IT Conference</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <button       
+          class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+              <a class="nav-link active" aria-current="home page" href="index.php">Home</a>
               <a class="nav-link" href="viewRecords.php">View Attendees</a>
-
+            </div>
+            <div class="navbar-nav">
+              <?php 
+                if (!isset($_SESSION['userid'])) {
+                    ?>
+                  <a class="nav-link" aria-current="login page" href="login.php">Login</a>
+              <?php } else {?>
+                <a class="nav-link disabled" aria-current="login page" href="login.php">Hello <?php echo $_SESSION['username']?>!</a>
+                <a class="nav-link" aria-current="logout page" href="logout.php">Logout</a>
+                <?php } ?>
             </div>
           </div>
         </div>
       </nav>
+    <div class="container">
+ 
       <br/>
       <br/>
       

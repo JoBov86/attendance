@@ -7,7 +7,7 @@
 ?>
     <h1 class="text-center">Registration for IT conference</h1>
 
-    <form method="post" action="success.php">
+    <form enctype='multipart/form-data' method="post" action="success.php">
         <div class="mb-3">
             <label for="firstName" class="form-label">First Name:</label>
             <input type="text" class="form-control" id="firstName" name="firstName" required>
@@ -45,6 +45,10 @@
             <input type="text" class="form-control" id="contactNum" name="contactNum" aria-describedby="contactNumHelp" required>
             <div id="contactNumHelp" class="form-text">We'll never share your contact number with anyone else.
             </div>
+        </div>
+        <div class="custom-file">
+            <label for="avatar" class="form-label">Upload image (optional):</label><br/>
+            <input type="file" accept="image/*" class="custom-file-input" id="avatar" name="avatar">
         </div>
         <div class="d-grid gap-2">
             <button type="submit" name="submit" class="btn btn-primary">Submit</button> 

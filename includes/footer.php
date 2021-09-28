@@ -1,5 +1,6 @@
-   <div id="footer">
-       <?php echo "Copyright " . date("y");?>
+   <div id="footer" class="p-3 mb-2 fixed-bottom navbar-light bg-light">
+      <p class="text-center"><?php echo "Copyright " . date("y");?></p>
+   
    </div>
    <!-- close bootstrap container div -->
 </div> 
