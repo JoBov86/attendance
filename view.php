@@ -11,7 +11,7 @@ if (!isset($_GET["id"])) {
     $id = $_GET["id"];
     $result = $crud->getAttendeeDetails($id);
     ?>
-<img src="<?php echo empty($result['avatar_path']) ? "uploads/blank.png" : $result['avatar_path'] ?>" style="width: 18rem" />
+<img src="<?php echo empty($result['avatar_path']) ? "uploads/blank.png" : $result['avatar_path'] ?>" style="width: 18rem; height: 30rem; object-fit: cover;"  />
 <div class="card" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title">
