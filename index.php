@@ -50,6 +50,7 @@
             <label for="avatar" class="form-label">Upload image (optional):</label><br/>
             <input type="file" accept="image/*" class="custom-file-input" id="avatar" name="avatar">
         </div>
+        <br/>
         <div class="d-grid gap-2">
             <button type="submit" name="submit" class="btn btn-primary">Submit</button> 
         </div>
