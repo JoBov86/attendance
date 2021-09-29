@@ -37,8 +37,9 @@ if (isset($_POST["submit"])) {
     // }
 }
 ?>
-    <img src="<?php echo $destination?>" style="width: 18rem" />
-    <div class="card" style="width: 18rem">
+    <div class="card" style="width: 20rem; margin-bottom: 5em;">
+    <img src="<?php echo $destination?>" style="width: 19rem; height: 30rem; object-fit: cover" />
+
         <div class="card-body">
             <h5 class="card-title">
                 <?php echo $_POST["firstName"]. " " .$_POST["lastName"];?>
@@ -52,4 +53,6 @@ if (isset($_POST["submit"])) {
       
         </div>
     </div>
+    <br/>
 <?php require_once "includes/footer.php"?>
+
